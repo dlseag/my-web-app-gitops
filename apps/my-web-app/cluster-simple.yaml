@@ -1,0 +1,20 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: my-irsa-cluster3
+  region: ap-northeast-1
+  version: "1.31"
+
+nodeGroups:
+  - name: standard-workers
+    instanceType: t3.small
+    desiredCapacity: 1
+    minSize: 1
+    maxSize: 2
+    volumeSize: 20
+    ssh:
+      allow: false
+
+iam:
+  withOIDC: true
